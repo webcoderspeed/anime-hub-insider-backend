@@ -20,6 +20,7 @@ import { LoggerModule, LoggerType } from 'nestjs-logitron';
                 colorize: false,
                 levelFirst: false,
                 translateTime: 'dd-mm-yyyy hh:mm:ss TT',
+                ignore: 'pid,hostname,level',
               },
             },
             {
@@ -29,6 +30,7 @@ import { LoggerModule, LoggerType } from 'nestjs-logitron';
                 colorize: true,
                 levelFirst: false,
                 translateTime: 'dd-mm-yyyy hh:mm:ss TT',
+                ignore: 'pid,hostname,level',
               },
             },
           ],

@@ -48,6 +48,30 @@ export class User extends AbstractDocument {
   bio?: string;
 
   @Prop({
+    type: String,
+    default: null,
+  })
+  location?: string;
+
+  @Prop({
+    type: String,
+    default: null,
+  })
+  website?: string;
+
+  @Prop({
+    type: String,
+    default: null,
+  })
+  twitter?: string;
+
+  @Prop({
+    type: String,
+    default: null,
+  })
+  instagram?: string;
+
+  @Prop({
     type: Boolean,
     default: true,
   })
