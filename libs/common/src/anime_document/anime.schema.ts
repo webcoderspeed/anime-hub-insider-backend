@@ -6,8 +6,19 @@ import {
 import { Relation, RelationSchema } from '../relation_document';
 import { Episode, EpisodeSchema } from '../episode_document';
 import { AbstractDocument } from '../database';
+import { Genre, GenreSchema } from '../genre_document';
 
-@Schema()
+@Schema({
+  collection: 'users',
+  versionKey: false,
+  timestamps: true,
+  toJSON: {
+    virtuals: true,
+  },
+  toObject: {
+    virtuals: true,
+  },
+})
 export class Anime extends AbstractDocument {
   @Prop({ required: true, unique: true })
   title: string;
@@ -21,8 +32,8 @@ export class Anime extends AbstractDocument {
   @Prop()
   description: string;
 
-  @Prop({ type: [String] })
-  genres: string[];
+  @Prop({ type: [GenreSchema], default: [] })
+  genres: Genre[];
 
   @Prop()
   hasSub: boolean;

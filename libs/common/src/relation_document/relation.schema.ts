@@ -1,7 +1,17 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { AbstractDocument } from '@app/common';
 
-@Schema()
+@Schema({
+  collection: 'users',
+  versionKey: false,
+  timestamps: true,
+  toJSON: {
+    virtuals: true,
+  },
+  toObject: {
+    virtuals: true,
+  },
+})
 export class Relation extends AbstractDocument {
   @Prop({ required: true })
   animeId: string;
