@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { MediaModule } from './media/media.module';
 import { LoggerModule, LoggerType } from 'nestjs-logitron';
 import { RecommendationModule } from './recommendation/recommendation.module';
+import { AnimeModule } from './anime';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { RecommendationModule } from './recommendation/recommendation.module';
     AuthModule,
     MediaModule,
     RecommendationModule,
+    AnimeModule,
   ],
   controllers: [],
   providers: [],

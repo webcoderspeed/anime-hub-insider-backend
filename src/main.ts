@@ -5,6 +5,7 @@ import {
   APP_PORT,
   corsOptions,
   ErrorExceptionFilter,
+  RequestInterceptor,
   ResponseInterceptor,
   ValidationPipe,
   X_TRACE_ID,
@@ -25,6 +26,7 @@ async function bootstrap() {
   app.useLogger(app.get<LoggerService>(LoggerService));
 
   app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalInterceptors(new RequestInterceptor());
   app.useGlobalInterceptors(new ResponseInterceptor());
   app.useGlobalFilters(new ErrorExceptionFilter());
   app.use(cookieParser());

@@ -72,6 +72,11 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     return this.model.find(filterQuery, {}, { lean: true });
   }
 
+  // --- Add this method ---
+  findQuery(filterQuery: FilterQuery<TDocument>) {
+    return this.model.find(filterQuery);
+  }
+
   async startTransaction() {
     const session = await this.connection.startSession();
     session.startTransaction();
@@ -80,5 +85,9 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
 
   async deleteOne(filterQuery: FilterQuery<TDocument>) {
     return this.model.deleteOne(filterQuery);
+  }
+
+  async countDocuments(filterQuery: FilterQuery<TDocument>) {
+    return this.model.countDocuments(filterQuery);
   }
 }

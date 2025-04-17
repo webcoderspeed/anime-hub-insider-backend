@@ -3,7 +3,7 @@ import { Types } from 'mongoose';
 import { AbstractDocument } from '../database';
 
 @Schema({
-  collection: 'users',
+  collection: 'favorite',
   versionKey: false,
   timestamps: true,
   toJSON: {

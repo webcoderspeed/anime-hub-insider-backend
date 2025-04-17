@@ -1,8 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { AbstractDocument } from '../database';
+import { Types } from 'mongoose';
 
 @Schema({
-  collection: 'users',
+  collection: 'anime',
   versionKey: false,
   timestamps: true,
   toJSON: {
@@ -13,8 +14,19 @@ import { AbstractDocument } from '../database';
   },
 })
 export class Anime extends AbstractDocument {
-  @Prop({ required: true, unique: true })
+  @Prop({ required: true })
   title: string;
+
+  @Prop({
+    unique: true,
+  })
+  slug: string;
+
+  @Prop({
+    type: [{ type: Types.ObjectId, ref: 'Genre' }],
+    ref: 'Genre',
+  })
+  genres?: Types.ObjectId[];
 
   @Prop()
   image: string;
@@ -29,10 +41,10 @@ export class Anime extends AbstractDocument {
   hasSub: boolean;
 
   @Prop()
-  status: string;
+  status: 'completed' | 'ongoing';
 
   @Prop()
-  type: string;
+  type: 'tv' | 'movie' | 'ova' | 'ona' | 'special' | 'music';
 
   @Prop()
   releaseDate: string;

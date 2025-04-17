@@ -9,9 +9,9 @@ export class AnimeRepository extends AbstractRepository<Anime> {
   protected readonly logger = new Logger(AnimeRepository.name);
 
   constructor(
-    @InjectModel(Anime.name) authModel: Model<Anime>,
+    @InjectModel(Anime.name) _animeModel: Model<Anime>,
     @InjectConnection() connection: Connection,
   ) {
-    super(authModel, connection);
+    super(_animeModel, connection);
   }
 }

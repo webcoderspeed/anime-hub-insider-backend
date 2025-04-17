@@ -26,7 +26,11 @@ export class ErrorExceptionFilter implements ExceptionFilter {
         ? { message: exceptionResponse }
         : exceptionResponse;
 
-    this.logger.error(error);
+    this.logger.error(
+      `[${request.method}] ${request.url} >> Status code: ${status}`,
+      error,
+      ErrorExceptionFilter.name,
+    );
 
     response.status(status).json({
       success: false,

@@ -3,7 +3,7 @@ import { Types } from 'mongoose';
 import { AbstractDocument } from '../database';
 
 @Schema({
-  collection: 'users',
+  collection: 'review',
   versionKey: false,
   timestamps: true,
   toJSON: {

@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { AbstractDocument } from '@app/common';
 
 @Schema({
-  collection: 'users',
+  collection: 'genre',
   versionKey: false,
   timestamps: true,
   toJSON: {

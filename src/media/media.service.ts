@@ -30,6 +30,7 @@ export class MediaService {
       name: media.name,
       type: media.type,
       _id: media._id,
+      url: media.url,
     };
   }
 

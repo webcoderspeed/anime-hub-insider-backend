@@ -3,7 +3,7 @@ import { Types } from 'mongoose';
 import { AbstractDocument } from '@app/common';
 
 @Schema({
-  collection: 'users',
+  collection: 'notification',
   versionKey: false,
   timestamps: true,
   toJSON: {
