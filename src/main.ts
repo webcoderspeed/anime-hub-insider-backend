@@ -11,6 +11,8 @@ import {
 } from '@app/common';
 import { ConfigService } from '@nestjs/config';
 import * as cookieParser from 'cookie-parser';
+import { join } from 'path';
+import * as express from 'express';
 
 async function bootstrap() {
   TraceIdHandler.setTraceIdField(X_TRACE_ID);
@@ -26,6 +28,8 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ResponseInterceptor());
   app.useGlobalFilters(new ErrorExceptionFilter());
   app.use(cookieParser());
+
+  app.use('/uploads', express.static(join(__dirname, '..', 'uploads')));
 
   const DEV_ORIGINS = configService.getOrThrow<string>('DEV_ORIGINS');
   const PROD_ORIGINS = configService.getOrThrow<string>('PROD_ORIGINS');

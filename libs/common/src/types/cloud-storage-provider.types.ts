@@ -1,7 +1,11 @@
 import { CLOUD_PROVIDERS } from '../cloud_storage_provider';
 
 export interface ICloudStorageProvider {
-  uploadFile(file: Express.Multer.File): Promise<{
+  uploadFile(
+    file: Express.Multer.File,
+    animeId: string,
+    episodeId?: string,
+  ): Promise<{
     name: string;
     url: string;
     type: string;

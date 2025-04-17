@@ -77,4 +77,8 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
     session.startTransaction();
     return session;
   }
+
+  async deleteOne(filterQuery: FilterQuery<TDocument>) {
+    return this.model.deleteOne(filterQuery);
+  }
 }

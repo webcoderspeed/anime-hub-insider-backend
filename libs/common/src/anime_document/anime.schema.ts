@@ -1,12 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import {
-  Recommendation,
-  RecommendationSchema,
-} from '../recommendation_document';
-import { Relation, RelationSchema } from '../relation_document';
-import { Episode, EpisodeSchema } from '../episode_document';
 import { AbstractDocument } from '../database';
-import { Genre, GenreSchema } from '../genre_document';
 
 @Schema({
   collection: 'users',
@@ -32,9 +25,6 @@ export class Anime extends AbstractDocument {
   @Prop()
   description: string;
 
-  @Prop({ type: [GenreSchema], default: [] })
-  genres: Genre[];
-
   @Prop()
   hasSub: boolean;
 
@@ -49,20 +39,5 @@ export class Anime extends AbstractDocument {
 
   @Prop({ type: [String] })
   studios: string[];
-
-  @Prop()
-  totalEpisodes: number;
-
-  @Prop({ type: [RecommendationSchema], default: [] })
-  recommendations: Recommendation[];
-
-  @Prop({ type: [RelationSchema], default: [] })
-  relations: Relation[];
-
-  @Prop({ type: [EpisodeSchema], default: [] })
-  episodes: Episode[];
-
-  @Prop()
-  episodePages: number;
 }
 export const AnimeSchema = SchemaFactory.createForClass(Anime);

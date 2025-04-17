@@ -18,8 +18,15 @@ export class GoogleCloudService implements ICloudStorageProvider {
 
   async uploadFile(
     file: Express.Multer.File,
+    animeId: string,
+    episodeId?: string,
   ): Promise<{ name: string; url: string; type: string }> {
-    const fileName = `uploads/${Date.now()}_${file.originalname}`;
+
+    const urlPath = episodeId
+    ? `/uploads/${animeId}/${episodeId}/${file.originalname}`
+    : `/uploads/${animeId}/${file.originalname}`;
+
+    const fileName = urlPath
     const blob = this.bucket.file(fileName);
     const blobStream = blob.createWriteStream();
 

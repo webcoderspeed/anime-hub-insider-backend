@@ -29,11 +29,17 @@ export class AwsS3Service implements ICloudStorageProvider {
 
   async uploadFile(
     file: Express.Multer.File,
+    animeId: string,
+    episodeId?: string,
   ): Promise<{ name: string; url: string; type: string }> {
     try {
+      const urlPath = episodeId
+        ? `/uploads/${animeId}/${episodeId}/${file.originalname}`
+        : `/uploads/${animeId}/${file.originalname}`;
+
       const uploadParams = {
         Bucket: this.configService.getOrThrow(AWS_S3_BUCKET_NAME),
-        Key: `uploads/${Date.now()}_${file.originalname}`,
+        Key: urlPath,
         Body: file.buffer,
         ContentType: file.mimetype,
         ACL: 'public-read',

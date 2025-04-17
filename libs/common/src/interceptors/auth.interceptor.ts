@@ -8,6 +8,7 @@ import {
 import { Observable } from 'rxjs';
 import { verify } from 'jsonwebtoken';
 import { ITokenPayload } from '../types';
+import { USER_ROLES_LABELS } from '../constants';
 
 @Injectable()
 export class AuthInterceptor implements NestInterceptor {
@@ -40,7 +41,7 @@ export class AuthInterceptor implements NestInterceptor {
       }
 
       throw new UnauthorizedException(
-        `${payload.role} is not allowed to access this resource`,
+        `${USER_ROLES_LABELS[payload.role]} is not allowed to access this resource`,
       );
     } catch (e) {
       throw new UnauthorizedException(e.message);

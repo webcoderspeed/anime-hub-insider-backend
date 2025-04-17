@@ -17,7 +17,7 @@ export class Recommendation extends AbstractDocument {
   animeId: string;
 
   @Prop()
-  reason: string;
+  reason?: string;
 }
 export const RecommendationSchema =
   SchemaFactory.createForClass(Recommendation);

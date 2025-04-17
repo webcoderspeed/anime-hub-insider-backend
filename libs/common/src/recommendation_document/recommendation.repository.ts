@@ -10,9 +10,9 @@ export class RecommendationRepository extends AbstractRepository<Recommendation>
 
   constructor(
     @InjectModel(Recommendation.name)
-    RecommendationModel: Model<Recommendation>,
+    _recommendationModel: Model<Recommendation>,
     @InjectConnection() connection: Connection,
   ) {
-    super(RecommendationModel, connection);
+    super(_recommendationModel, connection);
   }
 }
