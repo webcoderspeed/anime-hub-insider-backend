@@ -1,10 +1,13 @@
-import { IsMongoId, IsNotEmpty, IsString } from 'class-validator';
+import { IsString, IsOptional } from 'class-validator';
 
 export class CreateRecommendationDto {
-  @IsMongoId()
-  @IsNotEmpty()
-  animeId: string;
+  @IsString()
+  user: string;
 
   @IsString()
+  anime: string;
+
+  @IsString()
+  @IsOptional()
   reason?: string;
 }
