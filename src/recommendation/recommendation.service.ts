@@ -22,6 +22,8 @@ export class RecommendationService {
   }
 
   async remove(id: string) {
-    return this._recommendationRepository.deleteOne({ _id: new Types.ObjectId(id) });
+    return this._recommendationRepository.deleteOne({
+      _id: new Types.ObjectId(id),
+    });
   }
 }

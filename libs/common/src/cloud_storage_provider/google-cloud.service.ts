@@ -21,12 +21,11 @@ export class GoogleCloudService implements ICloudStorageProvider {
     animeId: string,
     episodeId?: string,
   ): Promise<{ name: string; url: string; type: string }> {
-
     const urlPath = episodeId
-    ? `/uploads/${animeId}/${episodeId}/${file.originalname}`
-    : `/uploads/${animeId}/${file.originalname}`;
+      ? `/uploads/${animeId}/${episodeId}/${file.originalname}`
+      : `/uploads/${animeId}/${file.originalname}`;
 
-    const fileName = urlPath
+    const fileName = urlPath;
     const blob = this.bucket.file(fileName);
     const blobStream = blob.createWriteStream();
 

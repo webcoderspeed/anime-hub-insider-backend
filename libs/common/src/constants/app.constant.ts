@@ -4,3 +4,4 @@ export const PROD_ORIGINS = 'PROD_ORIGINS';
 
 export const X_TRACE_ID = 'x-trace-id';
 export const X_API_KEY = 'x-api-key';
+export const BACKEND_URL = 'BACKEND_URL';

@@ -7,6 +7,8 @@ import {
   SaveOptions,
   Connection,
   PopulateOptions,
+  Aggregate,
+  PipelineStage,
 } from 'mongoose';
 import { AbstractDocument } from './abstract.schema';
 
@@ -89,5 +91,9 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument> {
 
   async countDocuments(filterQuery: FilterQuery<TDocument>) {
     return this.model.countDocuments(filterQuery);
+  }
+
+  async aggregate(pipeline: PipelineStage[]): Promise<Aggregate<TDocument[]>> {
+    return this.model.aggregate(pipeline);
   }
 }

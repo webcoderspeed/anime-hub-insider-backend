@@ -1,16 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { AbstractDocument } from '@app/common';
+import { AbstractDocument } from '../database';
 
 @Schema({
-  collection: 'genre',
+  collection: 'genres',
   versionKey: false,
   timestamps: true,
-  toJSON: {
-    virtuals: true,
-  },
-  toObject: {
-    virtuals: true,
-  },
 })
 export class Genre extends AbstractDocument {
   @Prop({ required: true, unique: true })

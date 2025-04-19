@@ -5,7 +5,17 @@ import { CloudStorageProviderFactory } from './cloud-storage-provider.factory';
 import { LocalStorageService } from './local-storage-service';
 
 @Module({
-  providers: [AwsS3Service, GoogleCloudService, LocalStorageService, CloudStorageProviderFactory],
-  exports: [AwsS3Service, GoogleCloudService, LocalStorageService, CloudStorageProviderFactory],
+  providers: [
+    AwsS3Service,
+    GoogleCloudService,
+    LocalStorageService,
+    CloudStorageProviderFactory,
+  ],
+  exports: [
+    AwsS3Service,
+    GoogleCloudService,
+    LocalStorageService,
+    CloudStorageProviderFactory,
+  ],
 })
 export class CloudStorageProviderModule {}

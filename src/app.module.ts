@@ -6,12 +6,14 @@ import { MediaModule } from './media/media.module';
 import { LoggerModule, LoggerType } from 'nestjs-logitron';
 import { RecommendationModule } from './recommendation/recommendation.module';
 import { AnimeModule } from './anime';
+import { GenreModule } from './genre/genre.module';
 
 @Module({
   imports: [
     LoggerModule.forRoot({
       type: LoggerType.PINO,
       options: {
+        appName: 'animehubinsider',
         transport: {
           targets: [
             {
@@ -48,6 +50,7 @@ import { AnimeModule } from './anime';
     MediaModule,
     RecommendationModule,
     AnimeModule,
+    GenreModule,
   ],
   controllers: [],
   providers: [],
