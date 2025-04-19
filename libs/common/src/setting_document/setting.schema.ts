@@ -18,63 +18,63 @@ export class Settings extends AbstractDocument {
   user: Types.ObjectId;
 
   @Prop({ default: 'system' })
-  theme: string; // 'light', 'dark', 'system'
+  theme?: string; // 'light', 'dark', 'system'
 
   @Prop({ default: 'medium' })
-  fontSize: string;
+  fontSize?: string;
 
   @Prop({ default: true })
-  showEpisodeThumbnails: boolean;
+  showEpisodeThumbnails?: boolean;
 
   @Prop({ default: true })
-  showAnimeRatings: boolean;
+  showAnimeRatings?: boolean;
 
   @Prop({ default: false })
-  compactView: boolean;
+  compactView?: boolean;
 
   @Prop({ default: false })
-  showNSFWContent: boolean;
+  showNSFWContent?: boolean;
 
   @Prop({ default: true })
-  autoplayNextEpisode: boolean;
+  autoplayNextEpisode?: boolean;
 
   @Prop({ default: '1080p' })
-  defaultQuality: string;
+  defaultQuality?: string;
 
   @Prop({ default: 50 })
-  defaultVolume: number;
+  defaultVolume?: number;
 
   @Prop({ default: true })
-  skipIntro: boolean;
+  skipIntro?: boolean;
 
   @Prop({ default: true })
-  skipOutro: boolean;
+  skipOutro?: boolean;
 
   @Prop({ default: true })
-  showSubtitles: boolean;
+  showSubtitles?: boolean;
 
   @Prop({ default: 'English' })
-  subtitleLanguage: string;
+  subtitleLanguage?: string;
 
   @Prop({ default: 'medium' })
-  subtitleFontSize: string;
+  subtitleFontSize?: string;
 
   @Prop({ default: 0.5 })
-  subtitleBackgroundOpacity: number;
+  subtitleBackgroundOpacity?: number;
 
   @Prop({ default: true })
-  notifyNewEpisodes: boolean;
+  notifyNewEpisodes?: boolean;
 
   @Prop({ default: true })
-  notifyNewSeasons: boolean;
+  notifyNewSeasons?: boolean;
 
   @Prop({ default: true })
-  notifyRecommendations: boolean;
+  notifyRecommendations?: boolean;
 
   @Prop({ default: false })
-  notifyForumReplies: boolean;
+  notifyForumReplies?: boolean;
 
   @Prop({ default: false })
-  newsletter: boolean;
+  newsletter?: boolean;
 }
 export const SettingsSchema = SchemaFactory.createForClass(Settings);

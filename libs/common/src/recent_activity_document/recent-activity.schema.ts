@@ -1,27 +1,25 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Types } from 'mongoose';
 import { AbstractDocument } from '../database';
+import { Types } from 'mongoose';
 
 @Schema({
-  collection: 'recent_activity',
+  collection: 'recent_activities',
   versionKey: false,
   timestamps: true,
-  toJSON: {
-    virtuals: true,
-  },
-  toObject: {
-    virtuals: true,
-  },
 })
 export class RecentActivity extends AbstractDocument {
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
   user: Types.ObjectId;
 
   @Prop({ required: true })
-  type: string; // e.g. "watched", "reviewed"
+  activityType: string;
 
-  @Prop({ type: Types.ObjectId, ref: 'Anime', required: true })
-  anime: Types.ObjectId;
+  @Prop({ required: true })
+  targetId: string;
+
+  @Prop()
+  details: string;
 }
+
 export const RecentActivitySchema =
   SchemaFactory.createForClass(RecentActivity);

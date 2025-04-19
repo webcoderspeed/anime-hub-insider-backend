@@ -7,6 +7,13 @@ import { LoggerModule, LoggerType } from 'nestjs-logitron';
 import { RecommendationModule } from './recommendation/recommendation.module';
 import { AnimeModule } from './anime';
 import { GenreModule } from './genre/genre.module';
+import { EpisodeModule } from './episode/episode.module';
+import { FavoriteModule } from './favorite/favorite.module';
+import { NotificationsModule } from './notifications/notifications.module';
+import { RecentActivityModule } from './recent-activity/recent-activity.module';
+import { SettingsModule } from './settings/settings.module';
+import { WatchlistModule } from './watchlist/watchlist.module';
+import { ReviewsModule } from './reviews/reviews.module';
 
 @Module({
   imports: [
@@ -51,6 +58,13 @@ import { GenreModule } from './genre/genre.module';
     RecommendationModule,
     AnimeModule,
     GenreModule,
+    EpisodeModule,
+    FavoriteModule,
+    NotificationsModule,
+    RecentActivityModule,
+    SettingsModule,
+    WatchlistModule,
+    ReviewsModule,
   ],
   controllers: [],
   providers: [],

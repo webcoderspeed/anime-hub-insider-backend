@@ -1,17 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { AbstractDocument } from '../database';
 import { Types } from 'mongoose';
-import { AbstractDocument } from '@app/common';
 
 @Schema({
-  collection: 'notification',
+  collection: 'notifications',
   versionKey: false,
   timestamps: true,
-  toJSON: {
-    virtuals: true,
-  },
-  toObject: {
-    virtuals: true,
-  },
 })
 export class Notification extends AbstractDocument {
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
@@ -20,10 +14,8 @@ export class Notification extends AbstractDocument {
   @Prop({ required: true })
   message: string;
 
-  @Prop({ default: false })
-  read: boolean;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
+  @Prop()
+  type: string;
 }
+
 export const NotificationSchema = SchemaFactory.createForClass(Notification);
