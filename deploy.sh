@@ -10,8 +10,14 @@ else
 	echo "Deploy Type: SOFT"
 fi
 
-yarn
+pnpm install --frozen-lockfile
+pnpm build
+echo "Deploying..."
+
+
 
 pm2 stop ecosystem.config.cjs
 
 pm2 start ecosystem.config.cjs
+
+echo "Deployed!"	
